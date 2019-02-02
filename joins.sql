@@ -22,3 +22,8 @@ WHERE users.created_at < date '2015-01-01';
 SELECT
 comments.id, comments.user_id, comments.post_id, comments.body, comments.created_at, comments.updated_at, posts.title AS post_title
 FROM comments INNER JOIN posts ON posts.id = comments.post_id;
+
+SELECT
+comments.id, comments.user_id, comments.post_id, comments.created_at, comments.updated_at, posts.title AS post_title, posts.url AS post_url, comments.body AS comment_body
+FROM comments INNER JOIN posts ON posts.id = comments.post_id
+WHERE posts.created_at < date '2015-01-01';
